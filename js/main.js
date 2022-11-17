@@ -1,7 +1,7 @@
 "use strict";
 
 import createTaskLi from "./createTaskLi.js";
-import createTaskList from "./createTaskList";
+import createTaskList from "./createTaskList.js";
 
 const form = document.querySelector("form");
 const cleanTasksBtn = document.querySelector(".cleanTasks");

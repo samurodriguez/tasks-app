@@ -1,4 +1,4 @@
-import createTaskLi from "./createTaskLi";
+import createTaskLi from "./createTaskLi.js";
 
 const ul = document.querySelector(".taskList");
 
