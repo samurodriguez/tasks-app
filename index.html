@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tasks App</title>
+    <script type="module" src="js/main.js" defer></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Tasks App</h1>
+    </header>
+
+    <main>
+      <form>
+        <label for="description">New task:</label>
+        <textarea
+          id="description"
+          name="description"
+          maxlength="150"
+          required
+        ></textarea>
+
+        <label for="priority">Priority:</label>
+        <select id="priority" name="priority">
+          <option value="normal">Normal</option>
+          <option value="important">Important</option>
+        </select>
+
+        <button>Create</button>
+      </form>
+
+      <button class="cleanTasks">Clean done tasks</button>
+
+      <ul class="taskList"></ul>
+    </main>
+
+    <footer>Hack a Boss 2022@</footer>
+  </body>
+</html>
