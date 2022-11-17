@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Monoton&family=Source+Sans+Pro:wght@300;400;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -10,4 +12,112 @@
 
 .done {
   text-decoration: line-through;
+}
+
+body {
+  font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  padding: 2rem;
+  text-align: center;
+}
+
+main {
+  flex-grow: 1;
+}
+
+form {
+  width: max-content;
+  margin: 2rem auto;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 15%);
+  padding: 2rem;
+  border-radius: 0.25rem;
+}
+
+form div:not(:nth-last-of-type(1)) {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
+
+form div:nth-last-of-type(2) {
+  margin-bottom: 2rem;
+}
+
+textarea,
+select {
+  padding: 0.5rem 0.75rem;
+  width: 100%;
+}
+
+form button {
+  background-color: #3087f9;
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border: none;
+  border-radius: 0.25rem;
+}
+
+form .cleanTasks {
+  background-color: rgb(144, 2, 2);
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.taskList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+  padding: 2rem;
+}
+
+li {
+  padding: 1rem;
+  border: 1px solid rgba(0, 0, 0, 30%);
+  border-radius: 0.25rem;
+  min-width: 60vw;
+  display: flex;
+  gap: 1rem;
+}
+
+li div p:first-child {
+  margin-bottom: 0.5rem;
+}
+
+li div p:last-child {
+  font-weight: 300;
+}
+
+footer {
+  padding: 1rem;
+  text-align: center;
+}
+
+@media (max-width: 1200px) {
+  li {
+    width: 80vw;
+  }
+}
+
+@media (max-width: 600px) {
+  form {
+    max-width: 60vw;
+    box-shadow: none;
+  }
+
+  form div {
+    flex-direction: column;
+  }
 }

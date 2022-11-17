@@ -1,12 +1,57 @@
 "use strict";
 
-import createTaskLi from "./createTaskLi.js";
-import createTaskList from "./createTaskList.js";
-
 const form = document.querySelector("form");
 const cleanTasksBtn = document.querySelector(".cleanTasks");
+const ul = document.querySelector("ul");
 
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+const createTaskLi = (taskToCreate) => {
+  const li = document.createElement("li");
+  const div = document.createElement("div");
+  const descriptionParagraph = document.createElement("p");
+  const createdAtParagraph = document.createElement("p");
+  const doneInput = document.createElement("input");
+
+  descriptionParagraph.textContent = taskToCreate.description;
+  createdAtParagraph.textContent = new Date(taskToCreate.createdAt)
+    .toLocaleString()
+    .replace(",", "");
+  doneInput.type = "checkbox";
+  doneInput.addEventListener("change", (event) => {
+    // event.target.parentElement.firstChild.classList.toggle("done");
+    descriptionParagraph.classList.toggle("done");
+
+    const taskIndex = tasks.findIndex((task) => {
+      return task.createdAt === taskToCreate.createdAt;
+    });
+
+    tasks[taskIndex].done = event.target.checked;
+
+    console.log(tasks);
+  });
+
+  if (taskToCreate.priority === "important") {
+    descriptionParagraph.classList.add("important");
+  }
+
+  if (taskToCreate.done) {
+    descriptionParagraph.classList.add("done");
+    doneInput.checked = true;
+  }
+
+  div.append(descriptionParagraph, createdAtParagraph);
+  li.append(doneInput, div);
+  ul.append(li);
+};
+
+const createTaskList = (tasks) => {
+  ul.innerHTML = "";
+
+  for (const task of tasks) {
+    createTaskLi(task);
+  }
+};
 
 createTaskList(tasks);
 
@@ -34,7 +79,7 @@ form.addEventListener("submit", (event) => {
 
   tasks.push(newTask);
 
-  createTaskLi(newTask, tasks);
+  createTaskLi(newTask);
 
   event.target.reset();
 });
